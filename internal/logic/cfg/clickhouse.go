@@ -5,8 +5,8 @@ import (
 	"github.com/gogf/gf/v2/os/gcfg"
 )
 
-func (s *sCfg) ClickHouseCountFlush(ctx context.Context) uint {
-	return gcfg.Instance().MustGet(ctx, "clickhouse.flush.count", 0).Uint()
+func (s *sCfg) ClickHouseCountFlush(ctx context.Context) uint32 {
+	return gcfg.Instance().MustGet(ctx, "clickhouse.flush.count", 0).Uint32()
 }
 
 func (s *sCfg) ClickHouseCrontabFlush(ctx context.Context) string {

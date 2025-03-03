@@ -14,15 +14,16 @@ import (
 type sClickHouse struct {
 	db gdb.DB
 
+	insertMu        sync.Mutex
 	insertQueue     *gqueue.Queue
 	insertQueuePath string
-	popInsertMu     sync.Mutex
 
-	flushCount uint
+	flushCount uint32
 
-	optimizeTableQueue *gqueue.Queue
 	optimizeTableMu    sync.Mutex
+	optimizeTableQueue *gqueue.Queue
 
+	crontabMu          sync.Mutex
 	crontab            *gcron.Cron
 	flushEntry         *gcron.Entry
 	optimizeTableEntry *gcron.Entry

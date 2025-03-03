@@ -7,6 +7,13 @@ import (
 )
 
 func (s *sClickHouse) lazyInitOptimizeTableQueue() {
+	if s.optimizeTableQueue != nil {
+		return
+	}
+
+	s.optimizeTableMu.Lock()
+	defer s.optimizeTableMu.Unlock()
+
 	if s.optimizeTableQueue == nil {
 		s.optimizeTableQueue = gqueue.New()
 	}

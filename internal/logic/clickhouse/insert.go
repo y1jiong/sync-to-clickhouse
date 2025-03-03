@@ -13,6 +13,13 @@ import (
 )
 
 func (s *sClickHouse) lazyInitInsertQueue() {
+	if s.insertQueue != nil {
+		return
+	}
+
+	s.insertMu.Lock()
+	defer s.insertMu.Unlock()
+
 	if s.insertQueue == nil {
 		s.insertQueue = gqueue.New()
 	}
@@ -47,8 +54,8 @@ func (s *sClickHouse) pushInsertQueueDataSlice(data []insertQueueData) {
 func (s *sClickHouse) popInsertQueueDataSlice(ctx context.Context) (data []insertQueueData) {
 	s.lazyInitInsertQueue()
 
-	s.popInsertMu.Lock()
-	defer s.popInsertMu.Unlock()
+	s.insertMu.Lock()
+	defer s.insertMu.Unlock()
 
 	insertQueueLen := s.insertQueue.Len()
 	if insertQueueLen == 0 {

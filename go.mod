@@ -3,7 +3,7 @@ module sync-to-clickhouse
 go 1.24
 
 require (
-	github.com/bytedance/sonic v1.12.9
+	github.com/bytedance/sonic v1.12.10
 	github.com/gogf/gf/contrib/drivers/clickhouse/v2 v2.8.3
 	github.com/gogf/gf/v2 v2.8.3
 	github.com/withlin/canal-go v1.1.2
@@ -14,7 +14,7 @@ require (
 require (
 	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/ClickHouse/ch-go v0.65.1 // indirect
-	github.com/ClickHouse/clickhouse-go/v2 v2.32.1 // indirect
+	github.com/ClickHouse/clickhouse-go/v2 v2.32.2 // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
 	github.com/bytedance/sonic/loader v0.2.3 // indirect
 	github.com/clbanning/mxj/v2 v2.7.0 // indirect
@@ -30,8 +30,8 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/grokify/html-strip-tags-go v0.1.0 // indirect
-	github.com/klauspost/compress v1.17.11 // indirect
-	github.com/klauspost/cpuid/v2 v2.2.9 // indirect
+	github.com/klauspost/compress v1.18.0 // indirect
+	github.com/klauspost/cpuid/v2 v2.2.10 // indirect
 	github.com/magiconair/properties v1.8.9 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect

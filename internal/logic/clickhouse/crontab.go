@@ -8,6 +8,13 @@ import (
 )
 
 func (s *sClickHouse) lazyInitCrontab() {
+	if s.crontab != nil {
+		return
+	}
+
+	s.crontabMu.Lock()
+	defer s.crontabMu.Unlock()
+
 	if s.crontab == nil {
 		s.crontab = gcron.New()
 	}
