@@ -183,7 +183,7 @@ var (
 					break canalLoop
 				default:
 				}
-				time.Sleep(time.Second)
+				time.Sleep(5 * time.Second)
 			}
 
 			overCh <- struct{}{}

@@ -26,18 +26,6 @@ func InsertStatement[T any](table string, data []map[string]T) (stmt string, arg
 		return
 	}
 
-	if len(data) == 1 {
-		keys := ExtractMapKeys(data[0])
-		args = append(args, ExtractMapValuesByKeys(data[0], keys)...)
-
-		stmt = fmt.Sprintf("INSERT INTO %s(%s) VALUES (%s)",
-			table,
-			strings.Join(keys, ","),
-			strings.Repeat("?,", len(keys)-1)+"?",
-		)
-		return
-	}
-
 	stmtBuilder := strings.Builder{}
 
 	keys := ExtractMapKeys(data[0])
