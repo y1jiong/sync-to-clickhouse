@@ -2,14 +2,15 @@ package clickhouse
 
 import (
 	"context"
-	"github.com/bytedance/sonic"
-	"github.com/gogf/gf/v2/container/gqueue"
-	"github.com/gogf/gf/v2/errors/gerror"
-	"github.com/gogf/gf/v2/frame/g"
 	"os"
 	"sort"
 	"sync-to-clickhouse/internal/service"
 	"sync-to-clickhouse/utility"
+
+	"github.com/bytedance/sonic"
+	"github.com/gogf/gf/v2/container/gqueue"
+	"github.com/gogf/gf/v2/errors/gerror"
+	"github.com/gogf/gf/v2/frame/g"
 )
 
 func (s *sClickHouse) lazyInitInsertQueue() {
@@ -188,7 +189,7 @@ func (s *sClickHouse) dumpInsertQueueToDisk(ctx context.Context) (err error) {
 		return
 	}
 
-	if err = os.WriteFile(s.insertQueuePath, dataBytes, 0644); err != nil {
+	if err = os.WriteFile(s.insertQueuePath, dataBytes, 0o644); err != nil {
 		return
 	}
 
