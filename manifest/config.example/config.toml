@@ -38,4 +38,4 @@ enableAfterInsert = false
 crontab = ""
 
 [database.default]
-link = "clickhouse:user:password@tcp(domain:9000)/default"
+link = "clickhouse:user:password@tcp(host:9000)/default"
